@@ -4,7 +4,13 @@ from django.urls import path
 
 from data_integration_app.views import (CustomerViewSet, SalesmanViewSet, SalesMViewSet, SalesDViewSet, ItemCardViewSet, CustCardViewSet)
 
+from django.http import HttpResponse
+
+def home(request):
+    return HttpResponse("Batook IT -- Data Integration")
+
 urlpatterns = [
+    path('', home, name='home'),
     path('customers/', CustomerViewSet.as_view({'get': 'list', 'post': 'create'}), name='customer-list'),
     path('customers/<int:pk>/',
          CustomerViewSet.as_view({'get': 'retrieve', 'put': 'update', 'patch': 'partial_update', 'delete': 'destroy'}),
