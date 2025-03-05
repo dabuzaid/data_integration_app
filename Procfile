@@ -1,0 +1,1 @@
+web: gunicorn data_integration_project.wsgi
