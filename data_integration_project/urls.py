@@ -1,5 +1,6 @@
 
 from django.urls import path
+from django.shortcuts import render
 #from data_integration.data_integration_app.views import CustomerViewSet, SalesmanViewSet, SalesMViewSet, SalesDViewSet, ItemCardViewSet, CustCardViewSet
 
 from data_integration_app.views import (CustomerViewSet, SalesmanViewSet, SalesMViewSet, SalesDViewSet, ItemCardViewSet, CustCardViewSet)
@@ -7,7 +8,8 @@ from data_integration_app.views import (CustomerViewSet, SalesmanViewSet, SalesM
 from django.http import HttpResponse
 
 def home(request):
-    return HttpResponse("Batook IT -- Data Integration")
+    return render(request, 'main.html')
+    #return HttpResponse("Batook IT -- Data Integration")
 
 urlpatterns = [
     path('', home, name='home'),
