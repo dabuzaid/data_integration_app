@@ -84,7 +84,7 @@ WSGI_APPLICATION = 'data_integration_project.wsgi.application'
 if os.getenv('DJANGO_ENV') == 'production':
     DATABASES = {
         'default': dj_database_url.config(
-            default='postgresql://sa:Rlnre35xECC4n62vpDERJjCQVvMSaHZU@dpg-cv6ocvl2ng1s73fvn6u0-a.frankfurt-postgres.render.com/batook_api'
+            default='postgresql://sa:Rlnre35xECC4n62vpDERJjCQVvMSaHZU@dpg-cv6ocvl2ng1s73fvn6u0-a/batook_api'
         )
     }
 else:
