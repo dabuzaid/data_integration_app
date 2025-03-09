@@ -11,6 +11,8 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 """
 import os
 from pathlib import Path
+import dj_database_url
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -79,12 +81,24 @@ WSGI_APPLICATION = 'data_integration_project.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+if os.getenv('DJANGO_ENV') == 'production':
+    DATABASES = {
+        'default': dj_database_url.config(
+            default='postgresql://sa:Rlnre35xECC4n62vpDERJjCQVvMSaHZU@dpg-cv6ocvl2ng1s73fvn6u0-a.frankfurt-postgres.render.com/batook_api'
+        )
     }
-}
+else:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.postgresql',
+            'NAME': 'batook_api',
+            'USER': 'postgres',
+            'PASSWORD': '123',
+            'HOST': 'localhost',  # e.g., 'localhost' for local
+            'PORT': '5432',  # e.g., '5432' (PostgreSQL's default port)
+        }
+    }
+
 
 
 # Password validation
