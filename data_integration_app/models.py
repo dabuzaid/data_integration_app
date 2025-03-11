@@ -198,14 +198,14 @@ class CustCard(models.Model):
         return f"CustCard({self.ccd_serial}, {self.ccd_code}, {self.ccd_date})"
 
 class SalesMIntegration(models.Model):
-    SalM_No = models.IntegerField(null=True, blank=True)
-    SalM_Branch = models.SmallIntegerField(null=True, blank=True)
-    SalM_Type = models.SmallIntegerField(null=True, blank=True)
-    bIntegrated = models.BooleanField(null=True, blank=True)
-    strTransactionType = models.CharField(max_length=1, null=True, blank=True)
-    dateEntry = models.DateTimeField(null=True, blank=True)
-    dateIntegration = models.DateTimeField(null=True, blank=True)
-    lngTransaction = models.BigAutoField(primary_key=True)  # Matches IDENTITY(1,1) behavior in SQL
+    salm_no = models.IntegerField(null=True, blank=True)
+    salm_branch = models.SmallIntegerField(null=True, blank=True)
+    salm_type = models.SmallIntegerField(null=True, blank=True)
+    bintegrated = models.BooleanField(null=True, blank=True)
+    strtransactiontype = models.CharField(max_length=1, null=True, blank=True)
+    dateentry = models.DateTimeField(null=True, blank=True)
+    dateintegration = models.DateTimeField(null=True, blank=True)
+    lngtransaction = models.BigAutoField(primary_key=True)  # Matches IDENTITY(1,1) behavior in SQL
 
     class Meta:
         db_table = "SalesM_Integration"
