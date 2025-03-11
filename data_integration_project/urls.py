@@ -3,7 +3,7 @@ from django.urls import path
 from django.shortcuts import render
 #from data_integration.data_integration_app.views import CustomerViewSet, SalesmanViewSet, SalesMViewSet, SalesDViewSet, ItemCardViewSet, CustCardViewSet
 
-from data_integration_app.views import (CustomerViewSet, SalesmanViewSet, SalesMViewSet, SalesDViewSet, ItemCardViewSet, CustCardViewSet)
+from data_integration_app.views import (CustomerViewSet, SalesmanViewSet, SalesMViewSet, SalesDViewSet, ItemCardViewSet, CustCardViewSet,SalesMIntegrationViewSet)
 
 from django.http import HttpResponse
 
@@ -42,4 +42,6 @@ urlpatterns = [
     path('custcard/<int:pk>/',
          CustCardViewSet.as_view({'get': 'retrieve', 'put': 'update', 'patch': 'partial_update', 'delete': 'destroy'}),
          name='custcard-detail'),
+
+    path('salesmintegration/', SalesMIntegrationViewSet.as_view({'get': 'list', 'post': 'create'}), name='salesm-list'),
 ]

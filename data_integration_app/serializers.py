@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import Customer, Salesman, SalesM, SalesD, ItemCard, CustCard
+from .models import Customer, Salesman, SalesM, SalesD, ItemCard, CustCard,SalesMIntegration
 
 
 class CustomerSerializer(serializers.ModelSerializer):
@@ -35,4 +35,10 @@ class ItemCardSerializer(serializers.ModelSerializer):
 class CustCardSerializer(serializers.ModelSerializer):
     class Meta:
         model = CustCard
+        fields = '__all__'
+
+
+class SalesMIntegrationSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = SalesMIntegration
         fields = '__all__'
