@@ -197,6 +197,32 @@ class CustCard(models.Model):
     def __str__(self):
         return f"CustCard({self.ccd_serial}, {self.ccd_code}, {self.ccd_date})"
 
+class Receipt(models.Model):
+    rec_no = models.FloatField(null=True, blank=True)
+    rec_date = models.DateTimeField(null=True, blank=True)
+    rec_amount = models.FloatField(null=True, blank=True)
+    rec_customer = models.FloatField(null=True, blank=True)
+    rec_branch = models.SmallIntegerField(null=True, blank=True)
+    rec_description = models.CharField(max_length=120, null=True, blank=True)
+    rec_cheque = models.FloatField(null=True, blank=True)
+    rec_bank = models.CharField(max_length=100, null=True, blank=True)
+    rec_remark = models.CharField(max_length=150, null=True, blank=True)
+    rec_user = models.SmallIntegerField(null=True, blank=True)
+    rec_flag = models.CharField(max_length=1, null=True, blank=True)
+    rec_aflag = models.CharField(max_length=1, null=True, blank=True)
+    rec_invoice_no = models.FloatField(null=True, blank=True)
+    rec_type = models.SmallIntegerField(null=True, blank=True)
+    rec_key = models.CharField(max_length=50, null=True, blank=True)
+    rec_account = models.FloatField(null=True, blank=True)
+    rec_voucher = models.FloatField(null=True, blank=True)
+    rec_vtype = models.SmallIntegerField(null=True, blank=True)
+    rec_cost_center = models.FloatField(null=True, blank=True)
+    rec_cost_item = models.FloatField(null=True, blank=True)
+    rec_collect = models.SmallIntegerField(null=True, blank=True)
+
+    class Meta:
+        db_table = 'Receipt'
+
 class SalesMIntegration(models.Model):
     salm_no = models.IntegerField(null=True, blank=True)
     salm_branch = models.SmallIntegerField(null=True, blank=True)
@@ -206,6 +232,6 @@ class SalesMIntegration(models.Model):
     dateentry = models.DateTimeField(null=True, blank=True)
     dateintegration = models.DateTimeField(null=True, blank=True)
     lngtransaction = models.BigAutoField(primary_key=True)  # Matches IDENTITY(1,1) behavior in SQL
-
+    strsource = models.CharField(max_length=50, null=True, blank=True)
     class Meta:
         db_table = "SalesM_Integration"

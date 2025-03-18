@@ -1,5 +1,7 @@
 from rest_framework import serializers
-from .models import Customer, Salesman, SalesM, SalesD, ItemCard, CustCard,SalesMIntegration
+from .models import Customer, Salesman, SalesM, SalesD, ItemCard, \
+    CustCard,SalesMIntegration,Receipt
+
 
 
 class CustomerSerializer(serializers.ModelSerializer):
@@ -41,4 +43,9 @@ class CustCardSerializer(serializers.ModelSerializer):
 class SalesMIntegrationSerializer(serializers.ModelSerializer):
     class Meta:
         model = SalesMIntegration
+        fields = '__all__'
+
+class ReceiptSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Receipt
         fields = '__all__'

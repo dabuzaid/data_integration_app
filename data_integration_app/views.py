@@ -2,8 +2,11 @@ from django.shortcuts import render
 
 from rest_framework import viewsets
 
-from .models import Customer, Salesman, SalesM, SalesD, ItemCard,CustCard,SalesMIntegration
-from .serializers import CustomerSerializer, SalesmanSerializer, SalesMSerializer, SalesDSerializer,ItemCardSerializer,CustCardSerializer,SalesMIntegrationSerializer
+from .models import Customer, Salesman, SalesM, SalesD, ItemCard,CustCard,\
+    SalesMIntegration,Receipt
+from .serializers import CustomerSerializer, SalesmanSerializer, SalesMSerializer, \
+    SalesDSerializer,ItemCardSerializer,CustCardSerializer,\
+    SalesMIntegrationSerializer,ReceiptSerializer
 
 class CustomerViewSet(viewsets.ModelViewSet):
     queryset = Customer.objects.all()
@@ -32,3 +35,7 @@ class CustCardViewSet(viewsets.ModelViewSet):
 class SalesMIntegrationViewSet(viewsets.ModelViewSet):
     queryset = SalesMIntegration.objects.all()
     serializer_class = SalesMIntegrationSerializer
+
+class ReceiptViewSet(viewsets.ModelViewSet):
+    queryset = Receipt.objects.all()
+    serializer_class = ReceiptSerializer
