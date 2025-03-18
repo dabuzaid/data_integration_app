@@ -233,5 +233,8 @@ class SalesMIntegration(models.Model):
     dateintegration = models.DateTimeField(null=True, blank=True)
     lngtransaction = models.BigAutoField(primary_key=True)  # Matches IDENTITY(1,1) behavior in SQL
     strsource = models.CharField(max_length=50, null=True, blank=True)
+    rec_no = models.IntegerField(null=True, blank=True)
+    rec_branch = models.SmallIntegerField(null=True, blank=True)
+    rec_type = models.SmallIntegerField(null=True, blank=True)
     class Meta:
         db_table = "SalesM_Integration"
