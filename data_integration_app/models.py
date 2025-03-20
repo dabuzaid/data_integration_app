@@ -236,5 +236,152 @@ class SalesMIntegration(models.Model):
     rec_no = models.IntegerField(null=True, blank=True)
     rec_branch = models.SmallIntegerField(null=True, blank=True)
     rec_type = models.SmallIntegerField(null=True, blank=True)
+    cur_code = models.SmallIntegerField(null=True,blank=True)
+    tranm_no = models.FloatField(null=True, blank=True)
+    tranm_from = models.SmallIntegerField(null=True, blank=True)
+    rcvm_no = models.FloatField(null=True, blank=True)
+    rcvm_branch = models.SmallIntegerField(null=True, blank=True)
+    rcvm_type = models.SmallIntegerField(null=True, blank=True)
     class Meta:
         db_table = "SalesM_Integration"
+
+class TransferM(models.Model):
+    tranm_no = models.FloatField(null=True, blank=True)
+    tranm_date = models.DateTimeField(null=True, blank=True)
+    tranm_from = models.SmallIntegerField(null=True, blank=True)
+    tranm_to = models.SmallIntegerField(null=True, blank=True)
+    tranm_remark = models.CharField(max_length=50, null=True, blank=True)
+    tranm_user = models.SmallIntegerField(null=True, blank=True)
+    tranm_flag = models.CharField(max_length=1, null=True, blank=True)
+    tranm_aflag = models.CharField(max_length=1, null=True, blank=True)
+    tranm_key = models.FloatField(null=True, blank=True)
+    transm_total = models.FloatField(null=True, blank=True)
+    tranm_main_no = models.FloatField(null=True, blank=True)
+    transaction_id = models.TextField(null=True, blank=True)
+    tranm_custno = models.FloatField(null=True, blank=True)
+    tranm_orderno = models.FloatField(null=True, blank=True)
+    transm_bcopied = models.BooleanField(null=True, blank=True)
+    str_awbs = models.CharField(max_length=20, null=True, blank=True)
+
+    class Meta:
+        db_table = "TransferM"
+
+class TransferD(models.Model):
+    trnd_no = models.FloatField(null=True, blank=True)
+    trnd_from = models.SmallIntegerField(null=True, blank=True)
+    trnd_serial = models.SmallIntegerField(null=True, blank=True)
+    trnd_item = models.CharField(max_length=20, null=True, blank=True)
+    trnd_qty = models.FloatField(null=True, blank=True)
+    trnd_user = models.SmallIntegerField(null=True, blank=True)
+    trnd_itname = models.CharField(max_length=50, null=True, blank=True)
+    trnd_cost = models.FloatField(null=True, blank=True)
+
+    class Meta:
+        db_table = "TransferD"
+
+class ReceiveM(models.Model):
+    rcvm_no = models.FloatField(null=True, blank=True)
+    rcvm_branch = models.SmallIntegerField(null=True, blank=True)
+    rcvm_date = models.DateTimeField(null=True, blank=True)
+    rcvm_suppinv = models.FloatField(null=True, blank=True)
+    rcvm_type = models.SmallIntegerField(null=True, blank=True)
+    rcvm_bankacc = models.FloatField(null=True, blank=True)
+    rcvm_cheque = models.FloatField(null=True, blank=True)
+    rcvm_lcno = models.CharField(max_length=20, null=True, blank=True)
+    rcvm_total = models.FloatField(null=True, blank=True)
+    rcvm_remark = models.CharField(max_length=120, null=True, blank=True)
+    rcvm_user = models.SmallIntegerField(null=True, blank=True)
+    rcvm_flag = models.CharField(max_length=1, null=True, blank=True)
+    rcvm_pono1 = models.IntegerField(null=True, blank=True)
+    rcvm_discr = models.FloatField(null=True, blank=True)
+    rcvm_disca = models.FloatField(null=True, blank=True)
+    rcvm_net = models.FloatField(null=True, blank=True)
+    rcvm_pono = models.FloatField(null=True, blank=True)
+    rcvm_aflag = models.CharField(max_length=1, null=True, blank=True)
+    rcvm_lctype = models.SmallIntegerField(null=True, blank=True)
+    rcvm_key = models.FloatField(null=True, blank=True)
+    rcvm_lcdesc = models.CharField(max_length=50, null=True, blank=True)
+    rcvm_voucher = models.FloatField(null=True, blank=True)
+    rcvm_difference = models.FloatField(null=True, blank=True)
+    rcvm_account = models.FloatField(null=True, blank=True)
+    rcvm_expdescription = models.CharField(max_length=100, null=True, blank=True)
+    rcvm_paydates = models.DateField(null=True, blank=True)
+    rcvm_paid = models.BooleanField(default=False)
+    rcvm_paydate = models.DateTimeField(null=True, blank=True)
+    transaction_id = models.TextField(null=True, blank=True)
+    str_invoiceno = models.CharField(max_length=20, null=True, blank=True)
+    byte_paymentstatus = models.SmallIntegerField(null=True, blank=True)
+    cur_netamount = models.FloatField(null=True, blank=True)
+    cur_fnetamount = models.FloatField(null=True, blank=True)
+    int_year = models.IntegerField(null=True, blank=True)
+    int_serial = models.IntegerField(null=True, blank=True)
+    str_voucherno = models.CharField(max_length=50, null=True, blank=True)
+    rcvm_vatamount = models.FloatField(null=True, blank=True)
+    rcvm_vataccount = models.FloatField(null=True, blank=True)
+    rcvm_vatexamount = models.FloatField(null=True, blank=True)
+    rcvm_vatexaccount = models.FloatField(null=True, blank=True)
+    date_invoice = models.DateTimeField(null=True, blank=True)
+    int_customdecno = models.IntegerField(null=True, blank=True)
+    date_customdec = models.DateTimeField(null=True, blank=True)
+
+    class Meta:
+        db_table = "ReceiveM"
+
+class ReceiveD(models.Model):
+    rcvd_no = models.FloatField(null=True, blank=True)
+    rcvd_branch = models.SmallIntegerField(null=True, blank=True)
+    rcvd_serial = models.SmallIntegerField(null=True, blank=True)
+    rcvd_item = models.CharField(max_length=20, null=True, blank=True)
+    rcvd_qtygood = models.FloatField(null=True, blank=True)
+    rcvd_qtydef = models.FloatField(null=True, blank=True)
+    rcvd_price = models.FloatField(null=True, blank=True)
+    rcvd_cost = models.FloatField(null=True, blank=True)
+    rcvd_total = models.FloatField(null=True, blank=True)
+    rcvd_expdate = models.DateTimeField(null=True, blank=True)
+    rcvd_itname = models.CharField(max_length=50, null=True, blank=True)
+    rcvd_user = models.SmallIntegerField(null=True, blank=True)
+
+    class Meta:
+        db_table = "ReceiveD"
+
+class VoucherHead(models.Model):
+    vom_company = models.SmallIntegerField()
+    vom_type = models.SmallIntegerField()
+    vom_no = models.FloatField()
+    vom_date = models.DateTimeField(null=True, blank=True)
+    vom_remark = models.CharField(max_length=200, null=True, blank=True)
+    vom_flag = models.CharField(max_length=1, null=True, blank=True)
+    vom_otype1 = models.SmallIntegerField(null=True, blank=True)
+    vom_user = models.SmallIntegerField(null=True, blank=True)
+    vom_tdebit = models.DecimalField(max_digits=19, decimal_places=4, null=True, blank=True)
+    vom_tcredit = models.DecimalField(max_digits=19, decimal_places=4, null=True, blank=True)
+    vom_otype = models.CharField(max_length=2, null=True, blank=True)
+    vom_key = models.DecimalField(max_digits=18, decimal_places=0, null=True, blank=True)
+    vom_tvend = models.FloatField(null=True, blank=True)
+    vom_lcsno = models.CharField(max_length=50, null=True, blank=True)
+
+    class Meta:
+        db_table = "VoucherHead"
+
+class VoucherDet(models.Model):
+    vod_company = models.SmallIntegerField()
+    vod_type = models.SmallIntegerField()
+    vod_no = models.FloatField()
+    vod_serial = models.SmallIntegerField()
+    vod_account = models.FloatField(null=True, blank=True)
+    vod_description = models.CharField(max_length=250, null=True, blank=True)
+    vod_debit = models.DecimalField(max_digits=19, decimal_places=4, null=True, blank=True)
+    vod_credit2 = models.SmallIntegerField(null=True, blank=True)
+    vod_refrence = models.FloatField(null=True, blank=True)
+    vod_user = models.SmallIntegerField(null=True, blank=True)
+    vod_credit = models.DecimalField(max_digits=19, decimal_places=4, null=True, blank=True)
+    vod_costi = models.FloatField(null=True, blank=True)
+    vod_costc = models.SmallIntegerField(null=True, blank=True)
+    vod_currrate = models.FloatField(null=True, blank=True)
+    vod_cdebit = models.FloatField(null=True, blank=True)
+    vod_ccredit = models.FloatField(null=True, blank=True)
+
+    class Meta:
+        db_table = "VoucherDet"
+
+

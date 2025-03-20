@@ -3,9 +3,15 @@ from django.urls import path
 from django.shortcuts import render
 #from data_integration.data_integration_app.views import CustomerViewSet, SalesmanViewSet, SalesMViewSet, SalesDViewSet, ItemCardViewSet, CustCardViewSet
 
-from data_integration_app.views import (CustomerViewSet, SalesmanViewSet, SalesMViewSet, SalesDViewSet, ItemCardViewSet, CustCardViewSet,SalesMIntegrationViewSet,ReceiptViewSet)
+from data_integration_app.views import (CustomerViewSet, SalesmanViewSet, SalesMViewSet,
+                                        SalesDViewSet, ItemCardViewSet, CustCardViewSet,
+                                        SalesMIntegrationViewSet,ReceiptViewSet)
 
 from django.http import HttpResponse
+
+from data_integration_app.views import TransferMViewSet, TransferDViewSet, ReceiveMViewSet, \
+    ReceiveDViewSet, VoucherHeadViewSet, VoucherDetViewSet
+
 
 def home(request):
     return render(request, 'main.html')
@@ -45,6 +51,20 @@ urlpatterns = [
 
     path('salesmintegration/', SalesMIntegrationViewSet.as_view({'get': 'list', 'post': 'create'}), name='salesm-list'),
 
-    path('receipt/', ReceiptViewSet.as_view({'get': 'list', 'post': 'create'}), name='receipt'
+
+
+path('transferm/', TransferMViewSet.as_view({'get': 'list', 'post': 'create'}), name='transferm'
                                                                                      '-list'),
+    path('transferd/', TransferDViewSet.as_view({'get': 'list', 'post': 'create'}), name='transferd'
+                                                                                     '-list'),
+    path('receivem/', ReceiveMViewSet.as_view({'get': 'list', 'post': 'create'}), name='receivem'
+                                                                                     '-list'),
+    path('received/', ReceiveDViewSet.as_view({'get': 'list', 'post': 'create'}), name='received'
+                                                                                     '-list'),
+    path('voucherhead/', VoucherHeadViewSet.as_view({'get': 'list', 'post': 'create'}), name='voucherhead'
+                                                                                     '-list'),
+    path('voucherdet/', VoucherDetViewSet.as_view({'get': 'list', 'post': 'create'}), name='voucherdet'
+                                                                                     '-list'),
+
+
 ]

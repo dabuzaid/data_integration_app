@@ -2,11 +2,13 @@ from django.shortcuts import render
 
 from rest_framework import viewsets
 
-from .models import Customer, Salesman, SalesM, SalesD, ItemCard,CustCard,\
-    SalesMIntegration,Receipt
+from .models import Customer, Salesman, SalesM, SalesD, ItemCard, CustCard, \
+    SalesMIntegration, Receipt, TransferM, TransferD, ReceiveM, ReceiveD, VoucherHead, VoucherDet
 from .serializers import CustomerSerializer, SalesmanSerializer, SalesMSerializer, \
-    SalesDSerializer,ItemCardSerializer,CustCardSerializer,\
-    SalesMIntegrationSerializer,ReceiptSerializer
+    SalesDSerializer, ItemCardSerializer, CustCardSerializer, \
+    SalesMIntegrationSerializer, ReceiptSerializer, TransferMSerializer, \
+    TransferDSerializer, ReceiveMSerializer, ReceiveDSerializer, VoucherHeadSerializer, VoucherDetSerializer
+
 
 class CustomerViewSet(viewsets.ModelViewSet):
     queryset = Customer.objects.all()
@@ -39,3 +41,27 @@ class SalesMIntegrationViewSet(viewsets.ModelViewSet):
 class ReceiptViewSet(viewsets.ModelViewSet):
     queryset = Receipt.objects.all()
     serializer_class = ReceiptSerializer
+
+class TransferMViewSet(viewsets.ModelViewSet):
+    queryset = TransferM.objects.all()
+    serializer_class = TransferMSerializer
+
+class TransferDViewSet(viewsets.ModelViewSet):
+    queryset = TransferD.objects.all()
+    serializer_class = TransferDSerializer
+
+class ReceiveMViewSet(viewsets.ModelViewSet):
+    queryset = ReceiveM.objects.all()
+    serializer_class = ReceiveMSerializer
+
+class ReceiveDViewSet(viewsets.ModelViewSet):
+    queryset = ReceiveD.objects.all()
+    serializer_class = ReceiveDSerializer
+
+class VoucherHeadViewSet(viewsets.ModelViewSet):
+    queryset = VoucherHead.objects.all()
+    serializer_class = VoucherHeadSerializer
+
+class VoucherDetViewSet(viewsets.ModelViewSet):
+    queryset = VoucherDet.objects.all()
+    serializer_class = VoucherDetSerializer

@@ -1,6 +1,6 @@
 from rest_framework import serializers
 from .models import Customer, Salesman, SalesM, SalesD, ItemCard, \
-    CustCard,SalesMIntegration,Receipt
+    CustCard,SalesMIntegration,Receipt,TransferM,TransferD,ReceiveM,ReceiveD,VoucherHead,VoucherDet
 
 
 
@@ -48,4 +48,44 @@ class SalesMIntegrationSerializer(serializers.ModelSerializer):
 class ReceiptSerializer(serializers.ModelSerializer):
     class Meta:
         model = Receipt
+        fields = '__all__'
+
+class TransferMSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = TransferM
+        fields = '__all__'
+
+class TransferDSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = TransferD
+        fields = '__all__'
+
+class ReceiveMSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = ReceiveM
+        fields = '__all__'
+
+class ReceiveDSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = ReceiveD
+        fields = '__all__'
+
+class VoucherHeadSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = VoucherHead
+        fields = '__all__'
+
+class VoucherDetSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = VoucherDet
+        fields = '__all__'
+
+class VoucherHeadSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = VoucherHead
+        fields = '__all__'
+
+class VoucherDetSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = VoucherDet
         fields = '__all__'
