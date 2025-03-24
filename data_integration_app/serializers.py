@@ -1,6 +1,6 @@
 from rest_framework import serializers
 from .models import Customer, Salesman, SalesM, SalesD, ItemCard, \
-    CustCard,SalesMIntegration,Receipt,TransferM,TransferD,ReceiveM,ReceiveD,VoucherHead,VoucherDet
+    CustCard,SalesMIntegration,Receipt,TransferM,TransferD,ReceiveM,ReceiveD,SuppCard,VoucherHead,VoucherDet
 
 
 
@@ -68,6 +68,11 @@ class ReceiveMSerializer(serializers.ModelSerializer):
 class ReceiveDSerializer(serializers.ModelSerializer):
     class Meta:
         model = ReceiveD
+        fields = '__all__'
+
+class SuppCardSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = SuppCard
         fields = '__all__'
 
 class VoucherHeadSerializer(serializers.ModelSerializer):
