@@ -3,12 +3,14 @@ from django.shortcuts import render
 from rest_framework import viewsets
 
 from .models import Customer, Salesman, SalesM, SalesD, ItemCard, CustCard, \
-    SalesMIntegration, Receipt, TransferM, TransferD, ReceiveM, ReceiveD,SuppCard, VoucherHead, VoucherDet
+    SalesMIntegration, Receipt, TransferM, TransferD, ReceiveM, ReceiveD, VoucherHead, VoucherDet
 from .serializers import CustomerSerializer, SalesmanSerializer, SalesMSerializer, \
     SalesDSerializer, ItemCardSerializer, CustCardSerializer, \
     SalesMIntegrationSerializer, ReceiptSerializer, TransferMSerializer, \
-    TransferDSerializer, ReceiveMSerializer, ReceiveDSerializer,SuppCardSerializer, VoucherHeadSerializer, VoucherDetSerializer
+    TransferDSerializer, ReceiveMSerializer, ReceiveDSerializer, VoucherHeadSerializer, VoucherDetSerializer
 
+#SuppCard
+#SuppCardSerializer
 
 class CustomerViewSet(viewsets.ModelViewSet):
     queryset = Customer.objects.all()
@@ -58,9 +60,7 @@ class ReceiveDViewSet(viewsets.ModelViewSet):
     queryset = ReceiveD.objects.all()
     serializer_class = ReceiveDSerializer
 
-class SuppCardViewSet(viewsets.ModelViewSet):
-    queryset = SuppCard.objects.all()
-    serializer_class = SuppCardSerializer
+
 
 class VoucherHeadViewSet(viewsets.ModelViewSet):
     queryset = VoucherHead.objects.all()

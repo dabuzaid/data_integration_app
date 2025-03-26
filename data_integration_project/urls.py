@@ -10,7 +10,8 @@ from data_integration_app.views import (CustomerViewSet, SalesmanViewSet, SalesM
 from django.http import HttpResponse
 
 from data_integration_app.views import TransferMViewSet, TransferDViewSet, ReceiveMViewSet, \
-    ReceiveDViewSet,SuppCardViewSet, VoucherHeadViewSet, VoucherDetViewSet
+    ReceiveDViewSet, VoucherHeadViewSet, VoucherDetViewSet
+#SuppCardViewSet
 
 
 def home(request):
@@ -61,8 +62,7 @@ urlpatterns = [
                                                                                      '-list'),
     path('received/', ReceiveDViewSet.as_view({'get': 'list', 'post': 'create'}), name='received'
                                                                                      '-list'),
-    path('suppcard/', SuppCardViewSet.as_view({'get': 'list', 'post': 'create'}), name='suppcard'
-                                                                                     '-list'),
+    #path('suppcard/', SuppCardViewSet.as_view({'get': 'list', 'post': 'create'}), name='suppcard''-list'),
     path('voucherhead/', VoucherHeadViewSet.as_view({'get': 'list', 'post': 'create'}), name='voucherhead'
                                                                                      '-list'),
     path('voucherdet/', VoucherDetViewSet.as_view({'get': 'list', 'post': 'create'}), name='voucherdet'
