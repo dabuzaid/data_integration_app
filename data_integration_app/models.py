@@ -344,6 +344,21 @@ class ReceiveD(models.Model):
     class Meta:
         db_table = "ReceiveD"
 
+class SuppCard(models.Model):
+    scd_serial = models.AutoField(primary_key=True)  # Assuming it's unique for each row
+    scd_code = models.CharField(max_length=255, null=True, blank=True)  # Adjust max_length as needed
+    scd_date = models.DateTimeField(null=True, blank=True)
+    scd_debit = models.DecimalField(max_digits=19, decimal_places=4, null=True, blank=True)  # For monetary values
+    scd_credit = models.DecimalField(max_digits=19, decimal_places=4, null=True, blank=True)
+    scd_branch = models.SmallIntegerField(null=True, blank=True)
+    scd_document = models.FloatField(null=True, blank=True)  # Adjust max_length
+    scd_type = models.CharField(max_length=255, null=True, blank=True)  # Adjust max_length
+    scd_voucher = models.CharField(max_length=255, null=True, blank=True)  # Adjust max_length
+    scd_description = models.TextField(null=True, blank=True)
+    str_voucherno = models.CharField(max_length=255, null=True, blank=True)  # Adjust max_length
+
+    class Meta:
+        db_table = "SuppCard"
 
 class VoucherHead(models.Model):
     vom_company = models.SmallIntegerField()
