@@ -351,7 +351,7 @@ class SuppCard(models.Model):
     scd_debit = models.DecimalField(max_digits=19, decimal_places=4, null=True, blank=True)  # For monetary values
     scd_credit = models.DecimalField(max_digits=19, decimal_places=4, null=True, blank=True)
     scd_branch = models.SmallIntegerField(null=True, blank=True)
-    scd_document = models.CharField(max_length=255, null=True, blank=True)  # Adjust max_length
+    scd_document = models.FloatField(null=True, blank=True)  # Adjust max_length
     scd_type = models.CharField(max_length=255, null=True, blank=True)  # Adjust max_length
     scd_voucher = models.CharField(max_length=255, null=True, blank=True)  # Adjust max_length
     scd_description = models.TextField(null=True, blank=True)
