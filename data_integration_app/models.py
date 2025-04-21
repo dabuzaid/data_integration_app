@@ -242,6 +242,8 @@ class SalesMIntegration(models.Model):
     rcvm_no = models.FloatField(null=True, blank=True)
     rcvm_branch = models.SmallIntegerField(null=True, blank=True)
     rcvm_type = models.SmallIntegerField(null=True, blank=True)
+    vom_type = models.SmallIntegerField(null=True, blank=True)
+    vom_no = models.FloatField(null=True, blank=True)
     class Meta:
         db_table = "SalesM_Integration"
 
