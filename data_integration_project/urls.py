@@ -51,7 +51,7 @@ urlpatterns = [
 
     path('salesmintegration/', SalesMIntegrationViewSet.as_view({'get': 'list', 'post': 'create'}), name='salesm-list'),
 
-
+    path('receipt/', ReceiptViewSet.as_view({'get': 'list', 'post': 'create'}), name='receipt-list'),
 
     path('transferm/', TransferMViewSet.as_view({'get': 'list', 'post': 'create'}), name='transferm'
                                                                                      '-list'),
